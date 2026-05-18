@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<!-- Mobil ve Tabletlerde Ekranın Tam Oturmasını Sağlayan Kritik Satır -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.phototourl.com/free/2026-05-18-7ad339a5-abea-4829-959a-944d63a8164a.png">
+
+<title>KidZania Oto Servis</title>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: url('https://cdn.phototourl.com/free/2026-05-18-6d0b95a9-9bb6-40c5-be26-630034bf35d0.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: white;
+  /* Mobil/Tablette taşmaları engeller ama içeriğin görünmesini kesmez */
+  overflow-x: hidden;
+  overflow-y: auto; 
+}
+
+.page { 
+  display: none; 
+  padding: 20px;
+  box-sizing: border-box;
+}
+.active { display: block; }
+
+.kai {
+  font-size: 70px;
+  font-weight: bold;
+  margin-top: 50px;
+  background: linear-gradient(45deg, red, yellow, lime, cyan);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.title {
+  font-size: 24px;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+/* 3D Görünümlü Gelişmiş Turuncu Buton */
+button {
+  padding: 14px 26px;
+  margin: 12px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: white;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow:
+    0 6px 0 #c2410c,
+    0 10px 20px rgba(0,0,0,0.35);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.2s ease;
+}
+
+/* Turuncu buton hover */
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 9px 0 #c2410c,
+    0 14px 25px rgba(0,0,0,0.45);
+  filter: brightness(1.08);
+}
+
+/* Basınca */
+button:active {
+  transform: translateY(4px) scale(0.95);
+  box-shadow:
+    0 2px 0 #c2410c,
+    0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* Mavi kontrol butonu */
+.btn-control {
+  background: linear-gradient(45deg, #3498db, #2980b9) !important;
+  box-shadow:
+    0 6px 0 #1f5f8b,
+    0 10px 20px rgba(0,0,0,0.35) !important;
+}
+
+/* Mavi buton hover */
+.btn-control:hover {
+  box-shadow:
+    0 9px 0 #1f5f8b,
+    0 14px 25px rgba(0,0,0,0.45) !important;
+}
+
+/* Mavi buton basınca */
+.btn-control:active {
+  box-shadow:
+    0 2px 0 #1f5f8b,
+    0 5px 10px rgba(0,0,0,0.3) !important;
+}
+
+/* Yeşil sonraki butonu */
+.btn-next {
+  background: linear-gradient(45deg, #2ecc71, #27ae60) !important;
+  box-shadow:
+    0 6px 0 #1e8449,
+    0 10px 20px rgba(0,0,0,0.35) !important;
+}
+
+/* Yeşil hover */
+.btn-next:hover {
+  box-shadow:
+    0 9px 0 #1e8449,
+    0 14px 25px rgba(0,0,0,0.45) !important;
+}
+
+/* Yeşil basınca */
+.btn-next:active {
+  box-shadow:
+    0 2px 0 #1e8449,
+    0 5px 10px rgba(0,0,0,0.3) !important;
+}
+
+.bounce {
+  display: inline-block;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+  100% {transform: translateY(0);}
+}
+
+.tick {
+  font-size: 40px;
+  color: lime;
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: 0;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to { transform: translateY(100vh) rotate(720deg); }
+}
+
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; 
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  padding: 20px;
+  flex-wrap: wrap; 
+}
+
+.info-text {
+  text-align: left; 
+}
+
+.info-image img {
+  width: 230px; 
+  height: auto;
+  border-radius: 15px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+}
+</style>
+</head>
+
+<body>
+
+<!-- ANA SAYFA -->
+<div class="page active" id="page1">
+  <div class="kai">KAI!</div>
+  <div class="title">🚗 KidZania İstanbul Oto Servis'e Hoş Geldiniz</div>
+  <button onclick="start()">🚗 Araç Analizi</button>
+</div>
+
+<!-- ANALİZ -->
+<div class="page" id="controlPage">
+  <h2 style="margin-top: 100px;">⏳ Araç analiz ediliyor...</h2>
+</div>
+
+<!-- ARAÇ BİLGİ -->
+<div class="page" id="infoPage">
+  <h2>🚗 Araç Bilgisi</h2>
+
+  <div class="info-container">
+    <!-- Sol/Üst Taraf: Fotoğraf -->
+    <div class="info-image">
+      <img src="https://cdn.phototourl.com/free/2026-05-18-7149a0de-a225-47b7-8363-fa69867151a3.png" alt="Ford KA Fotoğrafı">
+    </div>
+    <!-- Sağ/Alt Taraf: Yazılar -->
+    <div class="info-text">
+      <p>
+        🚘 Ford KA 2016 Model<br>
+        ✅ Muayene: Mayıs 2026<br>
+        📅 Sonraki: Mayıs 2028<br>
+        🛣️ Kilometre: 230.998<br><br>
+        ARAÇ BAKIM VE MUAYENENİZİ ZAMANINDA<br>YAPTIRDIĞINIZ İÇİN 
+      </p>
+      <center><h3>⭐ ZANKS! ⭐</h3></center>
+    </div>
+  </div>
+
+  <button onclick="goProblems()">Aracı Kontrol Et</button>
+</div>
+
+<!-- SORUNLAR -->
+<div class="page" id="listPage">
+  <h2>🔍 Araç Sorunları</h2>
+  <div id="problemList" style="font-size: 18px; line-height: 1.6;"></div>
+  <button onclick="startFix()">Tamire Başla</button>
+</div>
+
+<!-- TAMİR -->
+<div class="page" id="fixPage">
+  <h2 id="problemText" style="margin-top: 40px;"></h2>
+
+  <div id="actions"></div>
+
+  <p id="status"></p>
+</div>
+
+<!-- FINAL -->
+<div class="page" id="finalPage">
+  <h1 id="finalText" style="margin-top: 80px; line-height: 1.5;"></h1>
+  <button onclick="location.reload()">✌️ Zee-U!</button>
+</div>
+
+<script>
+
+let currentProblem = 0;
+let isSolved = false;
+let isControlled = false;
+
+const problems = [
+  {
+    text: "🌬️  Hava filtresi kirli, değiştirilmesi gerekiyor.",
+    action: "Filtreyi Değiştir",
+    result: "✅ Hava filtresi başarıyla değiştirildi!"
+  },
+  {
+    text: "🛢️  Motor yağı eski, yenilenmesi gerekiyor.",
+    action: "Motor Yağını Yenile",
+    result: "✅ Motor yağı başarıyla yenilendi!"
+  },
+  {
+    text: "💧  Cam suyu seviyesi düşük, ekleme yapılması gerekiyor.",
+    action: "Cam Suyu Ekle",
+    result: "✅ Cam suyu başarıyla eklendi!"
+  },
+  {
+    text: "🚗  Ön lastikler aşınmış, yenilenmesi gerekiyor.",
+    action: "Ön Lastikleri Yenile",
+    result: "✅ Ön lastikler başarıyla yenilendi!"
+  },
+  {
+    text: "⚡  Sigorta bağlantısı yok, kabloları kontrol ediniz.",
+    action: "Kabloları Kontrol Et ve Bağla",
+    result: "✅ Kablolar kontrol edildi, sigorta bağlantısı sağlandı!"
+  }
+];
+
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function start() {
+  showPage("controlPage");
+
+  setTimeout(() => {
+    showPage("infoPage");
+  }, 2000);
+}
+
+function goProblems() {
+  let html = "";
+  problems.forEach(p => {
+    html += `<div>${p.text}</div><br>`;
+  });
+  document.getElementById("problemList").innerHTML = html;
+  showPage("listPage");
+}
+
+function startFix() {
+  currentProblem = 0;
+  showProblem();
+}
+
+function showProblem() {
+  showPage("fixPage");
+
+  isSolved = false;
+  isControlled = false;
+
+  let p = problems[currentProblem];
+
+  document.getElementById("problemText").innerHTML =
+    `<span class="bounce">${p.text}</span>`;
+
+  let nextText = "Sonraki Soruna Git";
+  if (currentProblem >= problems.length - 1) {
+    nextText = " İşlemi Bitir";
+  }
+
+  document.getElementById("actions").innerHTML = `
+    <button id="fixBtn" onclick="solve()">⚙️ ${p.action}</button>
+    <button id="controlBtn" class="btn-control" onclick="reControl()">🔄 Tekrar Kontrol Et</button>
+    <button id="nextBtn" class="btn-next" onclick="nextProblem()">👉 ${nextText}</button>
+  `;
+
+  document.getElementById("status").innerHTML = "";
+}
+
+function solve() {
+  isSolved = true;
+  document.getElementById("status").innerHTML =
+    `<div class="tick" style="color: #3498db;">ℹ️</div> Sistem tekrar analiz ediliyor, lütfen işlemi uygulayın.`;
+}
+
+function reControl() {
+  if (!isSolved) {
+    document.getElementById("status").innerHTML = 
+      `<div class="tick" style="color: #f1c40f;">⚠️</div> Lütfen önce yukarıdaki tamir işlemini uygulayınız!`;
+    return;
+  }
+
+  let p = problems[currentProblem];
+  isControlled = true;
+  
+  document.getElementById("status").innerHTML =
+    `<div class="tick">✔</div> ${p.result}`;
+
+  confetti();
+}
+
+function nextProblem() {
+  if (!isSolved) {
+    document.getElementById("status").innerHTML = 
+      `<div class="tick" style="color: #f1c40f;">⚠️</div> Lütfen önce tamir işlemini uygulayıp ardından sistemi kontrol ediniz!`;
+    return;
+  }
+  
+  if (isSolved && !isControlled) {
+    document.getElementById("status").innerHTML = 
+      `<div class="tick" style="color: #f1c40f;">⚠️</div> Tamir yapıldı! Lütfen sonraki soruna geçmeden önce 'Tekrar Kontrol Et' butonuna basarak sistemi test edin.`;
+    return;
+  }
+
+  currentProblem++;
+
+  if (currentProblem < problems.length) {
+    showProblem();
+  } else {
+    showFinal();
+  }
+}
+
+function confetti() {
+  for (let i = 0; i < 15; i++) {
+    let c = document.createElement("div");
+    c.classList.add("confetti");
+
+    c.style.left = Math.random() * window.innerWidth + "px";
+    c.style.background =
+      ["red","yellow","blue","green"][Math.floor(Math.random()*4)];
+
+    document.body.appendChild(c);
+
+    setTimeout(() => c.remove(), 3000);
+  }
+}
+
+function showFinal() {
+  showPage("finalPage");
+  // Alt satırların tabletlerde düzgün kırılması için innerHTML entegre edildi
+  document.getElementById("finalText").innerHTML =
+    "🏆 ZÜPERSİN! <br><br> USTA GÖREVİNİ TAMAMLADI! <br><br> ZANKS! 🏆";
+
+  confetti();
+}
+
+</script>
+
+</body>
+</html>
