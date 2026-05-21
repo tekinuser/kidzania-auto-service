@@ -18,7 +18,7 @@ html, body {
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background: url('https://i.imageupload.app/cbda4016653a025fdefa.png') no-repeat center center fixed;
+  background: url('https://i.imageupload.app/14ccd5f29ee1d7cbfd68.png') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   color: white;
@@ -143,6 +143,36 @@ button:active {
     0 5px 10px rgba(0,0,0,0.3) !important;
 }
 
+
+.btn-home {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 99999 !important;
+  padding: 12px 24px !important;
+  white-space: nowrap;
+  font-size: 16px !important;
+  min-width: 140px !important;
+  background: linear-gradient(45deg, #e74c3c, #c0392b) !important;
+  box-shadow:
+    0 4px 0 #962d22,
+    0 8px 15px rgba(0,0,0,0.4) !important;
+}
+
+.btn-home:hover {
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow:
+    0 6px 0 #962d22,
+    0 10px 20px rgba(0,0,0,0.5) !important;
+}
+
+.btn-home:active {
+  transform: translateY(4px) scale(0.95) !important;
+  box-shadow:
+    0 2px 0 #962d22,
+    0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
 .bounce {
   display: inline-block;
   animation: bounce 1s infinite;
@@ -164,7 +194,7 @@ button:active {
   width: 10px;
   height: 10px;
   top: 0;
-  animation: fall 3s linear forwards;
+  animation: fall 4s linear forwards;
 }
 
 @keyframes fall {
@@ -204,6 +234,7 @@ button:active {
 
 <body>
 
+
 <div class="page active" id="page1">
   <div class="kai">KAI!</div>
   <div class="title">🚗 KidZania İstanbul Oto Servis'e Hoş Geldiniz</div>
@@ -212,6 +243,7 @@ button:active {
 
 <div class="page" id="controlPage">
   <h2 style="margin-top: 100px;">⏳ Araç analiz ediliyor...</h2>
+  <button class="btn-home" onclick="resetApp()">🏠 Ana Sayfa</button>
 </div>
 
 <div class="page" id="infoPage">
@@ -236,12 +268,14 @@ button:active {
   </div>
 
   <button onclick="goProblems()">Aracı Kontrol Et</button>
+  <button class="btn-home" onclick="resetApp()">🏠 Ana Sayfa</button>
 </div>
 
 <div class="page" id="listPage">
   <h2>🔍 Araç Sorunları</h2>
   <div id="problemList" style="font-size: 18px; line-height: 1.6;"></div>
   <button onclick="startFix()">Tamire Başla</button>
+  <button class="btn-home" onclick="resetApp()">🏠 Ana Sayfa</button>
 </div>
 
 <div class="page" id="fixPage">
@@ -250,11 +284,13 @@ button:active {
   <div id="actions"></div>
 
   <p id="status"></p>
+  <button class="btn-home" onclick="resetApp()">🏠 Ana Sayfa</button>
 </div>
 
 <div class="page" id="finalPage">
   <h1 id="finalText" style="margin-top: 80px; line-height: 1.5;"></h1>
   <button onclick="location.reload()">✌️ Z-U!</button>
+  <button class="btn-home" onclick="resetApp()">🏠 Ana Sayfa</button>
 </div>
 
 <script>
@@ -300,7 +336,9 @@ function start() {
   showPage("controlPage");
 
   setTimeout(() => {
-    showPage("infoPage");
+    if(document.getElementById("controlPage").classList.contains("active")) {
+      showPage("infoPage");
+    }
   }, 2000);
 }
 
@@ -405,9 +443,16 @@ function confetti() {
 function showFinal() {
   showPage("finalPage");
   document.getElementById("finalText").innerHTML =
-    "🏆 ZÜPERSİN! <br><br> USTA GÖREVİNİ TAMAMLADI! <br><br> ZANKS! 🏆";
+    "🏆 ZÜPERSİN! 🏆 <br><br> USTA GÖREVİNİ TAMAMLADI! <br><br>🏆 ZANKS! 🏆";
 
   confetti();
+}
+
+function resetApp() {
+  currentProblem = 0;
+  isSolved = false;
+  isControlled = false;
+  showPage("page1");
 }
 
 </script>
