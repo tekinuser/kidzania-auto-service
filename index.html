@@ -3,280 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.phototourl.com/free/2026-05-23-d4a1ce4d-3412-496d-ab71-9633a84e7108.png">
-
 <title>KidZania Oto Servis</title>
-
 <style>
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: url('https://cdn.phototourl.com/free/2026-05-23-a152f863-78aa-41c3-b4ce-9d8d198f1035.png') no-repeat center center fixed;
-  background-size: cover;
-  min-height: 100vh;
-  color: white;
-  overflow-x: hidden;
-  overflow-y: auto; 
-}
-
-.page { 
-  display: none; 
-  padding: 20px;
-  box-sizing: border-box;
-}
-.active { display: block; }
-
-.kai {
-  font-size: 70px;
-  font-weight: bold;
-  margin-top: 50px;
-  background: linear-gradient(45deg, red, yellow, lime, cyan);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.title {
-  font-size: 44px;
-  font-weight: bold;
-  margin-top: 20px;
-  padding: 0 10px;
-}
-  
-button {
-  padding: 16px 30px;
-  margin: 12px;
-  font-size: 20px;
-  font-weight: 900;
-  letter-spacing: 0.5px;
-  color: white;
-  background: linear-gradient(45deg, #ff9800, #ff5722);
-  border: none;
-  border-radius: 16px;
-  cursor: pointer;
-  max-width: 90%;
-  box-sizing: border-box;
-  box-shadow:
-    0 6px 0 #c2410c,
-    0 10px 20px rgba(0,0,0,0.35);
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    filter 0.2s ease;
-}
-#page1 button {
-  margin-top: 40px; 
-}
-
-#infoPage button {
-  margin-top: 45px;
-}
-
-#listPage button {
-  margin-top: 35px;
-}
-
-#actions button {
-  margin-top: 275px; 
-}
-
-#finalPage button {
-  margin-top: 40px;
-}
-
-button:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow:
-    0 9px 0 #c2410c,
-    0 14px 25px rgba(0,0,0,0.45);
-  filter: brightness(1.08);
-}
-
-button:active {
-  transform: translateY(4px) scale(0.95);
-  box-shadow:
-    0 2px 0 #c2410c,
-    0 5px 10px rgba(0,0,0,0.3);
-}
-
-.btn-control {
-  background: linear-gradient(45deg, #3498db, #2980b9) !important;
-  box-shadow:
-    0 6px 0 #1f5f8b,
-    0 10px 20px rgba(0,0,0,0.35) !important;
-}
-
-.btn-control:hover {
-  box-shadow:
-    0 9px 0 #1f5f8b,
-    0 14px 25px rgba(0,0,0,0.45) !important;
-}
-
-.btn-control:active {
-  box-shadow:
-    0 2px 0 #1f5f8b,
-    0 5px 10px rgba(0,0,0,0.3) !important;
-}
-
-.btn-next {
-  background: linear-gradient(45deg, #2ecc71, #27ae60) !important;
-  box-shadow:
-    0 6px 0 #1e8449,
-    0 10px 20px rgba(0,0,0,0.35) !important;
-}
-
-.btn-next:hover {
-  box-shadow:
-    0 9px 0 #1e8449,
-    0 14px 25px rgba(0,0,0,0.45) !important;
-}
-
-.btn-next:active {
-  box-shadow:
-    0 2px 0 #1e8449,
-    0 5px 10px rgba(0,0,0,0.3) !important;
-}
-
-
-.btn-home {
-  position: fixed !important;
-  bottom: 20px !important;
-  right: 20px !important;
-  z-index: 99999 !important;
-  padding: 12px 24px !important;
-  white-space: nowrap;
-  font-size: 16px !important;
-  min-width: 140px !important;
-  background: linear-gradient(45deg, #e74c3c, #c0392b) !important;
-  box-shadow:
-    0 4px 0 #962d22,
-    0 8px 15px rgba(0,0,0,0.4) !important;
-}
-
-.btn-home:hover {
-  transform: translateY(-3px) scale(1.03) !important;
-  box-shadow:
-    0 6px 0 #962d22,
-    0 10px 20px rgba(0,0,0,0.5) !important;
-}
-
-.btn-home:active {
-  transform: translateY(4px) scale(0.95) !important;
-  box-shadow:
-    0 2px 0 #962d22,
-    0 4px 8px rgba(0,0,0,0.3) !important;
-}
-
-.bounce {
-  display: inline-block;
-  animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-  0% {transform: translateY(0);}
-  50% {transform: translateY(-10px);}
-  100% {transform: translateY(0);}
-}
-
-.tick {
-  font-size: 40px;
-  color: lime;
-}
-
-.confetti {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  top: 0;
-  animation: fall 4s linear forwards;
-}
-
-@keyframes fall {
-  to { transform: translateY(100vh) rotate(720deg); }
-}
-
-.info-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px; 
-  max-width: 800px;
-  margin: 0 auto 20px auto;
-  padding: 20px;
-  flex-wrap: wrap; 
-}
-
-.info-text {
-  text-align: left; 
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 15px; 
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
-}
-
-.info-image img {
-  width: 376px; 
-  height: 275px;
-  border-radius: 15px; 
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
-}
-  #splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
+    html, body { height: 100%; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; text-align: center; background: url('https://i.hizliresim.com/csl6rku.png') no-repeat center center fixed; background-size: cover; color: white; display:flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+    
+    .page { 
+    display: none;
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.page.active { 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
+    position: relative;
+    z-index: 1;
+}
+    .active { display: block; }
+
+    #page1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding-bottom: 50px;
+    }
+
+    .kai { font-size: 70px; font-weight: bold; background: linear-gradient(45deg, red, yellow, lime, cyan); -webkit-background-clip: text; color: transparent; }
+    .title { font-size: 44px; font-weight: bold; margin-top: 20px; padding: 0 10px; }
+    
+    button { padding: 16px 30px; margin: 12px; font-size: 20px; font-weight: 900; color: white; background: linear-gradient(45deg, #ff9800, #ff5722); border: none; border-radius: 16px; cursor: pointer; max-width: 90%; box-shadow: 0 6px 0 #c2410c, 0 10px 20px rgba(0,0,0,0.35); transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.2s ease; }
+    button:hover { transform: translateY(-3px) scale(1.03); filter: brightness(1.08); }
+
+.btn-control { 
+    background: linear-gradient(45deg, #3498db, #2980b9) !important;
+    box-shadow: 0 6px 0 #1f5f8b !important;
 }
 
-.splash-logo {
-    width: 150px; 
-    height: auto;
-    margin-bottom: 20px;
-    animation: pulse 1.5s infinite ease-in-out;
+.btn-next { 
+    background: linear-gradient(45deg, #2ecc71, #27ae60) !important;
+    box-shadow: 0 6px 0 #1e8449 !important;
 }
 
-.loading-bar {
-    width: 200px;
-    height: 4px;
-    background-color: #e0e0e0;
-    border-radius: 2px;
-    overflow: hidden;
+.btn-home { position: fixed !important; bottom: 20px !important; right: 20px !important; z-index: 99999 !important; background: linear-gradient(45deg, #e74c3c, #c0392b) !important; }
+    
+    .bounce { display: inline-block; animation: bounce 1s infinite; }
+    @keyframes bounce { 0% {transform: translateY(0);} 50% {transform: translateY(-10px);} 100% {transform: translateY(0);} }
+    
+    .tick { font-size: 40px; color: lime; }
+    .confetti { position: fixed; width: 10px; height: 10px; top: 0; animation: fall 4s linear forwards; }
+    @keyframes fall { to { transform: translateY(100vh) rotate(720deg); } }
+    
+    .info-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.progress {
-    width: 0%;
-    height: 100%;
-    background-color: #ff0000;
-    animation: load 2.5s forwards linear; 
+.info-image img {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+.info-text {
+    width: 400px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+}
+    
+    #splash-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s ease; }
+    .splash-logo { width: 150px; margin-bottom: 20px; animation: pulse 1.5s infinite ease-in-out; }
+    .loading-bar { width: 200px; height: 4px; background-color: #e0e0e0; border-radius: 2px; overflow: hidden; }
+    .progress { width: 0%; height: 100%; background-color: #ff0000; animation: load 2.5s forwards linear; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    @keyframes load { to { width: 100%; } }
+
+.lang-switch {
+  position: fixed;     
+  bottom: 20px;       
+  right: 20px;      
+  display: flex;
+  gap: 10px;
+  z-index: 99999;    
+
 }
 
-@keyframes load {
-    to { width: 100%; }
+.flag {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  object-fit: cover;
+  object-position: center;
+
+  border: 3px solid white;
+  display: block;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.flag.tr {
+  object-position: 20%;
+}
+
+
+.flag:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
 </style>
 </head>
-
 <body>
 
 <div id="splash-screen">
@@ -287,233 +150,400 @@ button:active {
 <div class="page active" id="page1">
   <div class="kai">KAI!</div>
   <div class="title">🚗 KidZania İstanbul Oto Servis'e Hoş Geldiniz</div>
+  
+<div class="lang-switch">
+  <img src="https://i.hizliresim.com/jm05zqn.png" onclick="setLang('tr')" class="flag tr">
+  <img src="https://i.hizliresim.com/hj3ucy6.jpg" onclick="setLang('en')" class="flag">
+</div>
+
+
+  <br><br>
+
   <button onclick="start()">🚗 Araç Analizi</button>
 </div>
 
 <div class="page" id="controlPage">
-  <h2 style="margin-top: 100px;">⏳ Araç analiz ediliyor...</h2>
-  <button class="btn-home" onclick="resetApp()">🏠 Ana Sayfa</button>
+  <h2 id="analyzingText" style="margin-top: 100px;">⏳ Araç analiz ediliyor...</h2>
+  <button class="btn-home" onclick="resetApp()" id="homeBtn">🏠 Ana Sayfa</button>
 </div>
 
 <div class="page" id="infoPage">
-  <h2>🚗 Araç Bilgisi</h2>
-
+  <h2 id="infoTitle">🚗 Araç Bilgisi</h2>
   <div class="info-container">
-    <div class="info-image">
-      <img src="https://cdn.phototourl.com/free/2026-05-23-5e7b5b1c-68e3-4ae3-93d9-512daa934c2b.png" alt="Araç Fotoğrafı">
-    </div>
+    <div class="info-image"><img src="https://cdn.phototourl.com/free/2026-05-23-5e7b5b1c-68e3-4ae3-93d9-512daa934c2b.png" alt="Araç Fotoğrafı"></div>
     <div class="info-text">
-      <p>
-        🚘 KidZania İST 2013 Model<br>
-        ✅ Muayene: Mayıs 2026<br>
-        📅 Sonraki: Mayıs 2028<br>
-        🛣️ Kilometre: 230.998<br><br>
-        <center>
-        ARAÇ BAKIM VE MUAYENENİZİ ZAMANINDA<br>YAPTIRDIĞINIZ İÇİN 
-      </p>
+      <p id="vehicleInfo"></p>
+      <center>
+       <p id="maintenanceText"></p>
       <h3>⭐ ZANKS! ⭐</h3>
        </center>
     </div>
   </div>
-
-  <button onclick="goProblems()">Aracı Kontrol Et</button>
-  <button class="btn-home" onclick="resetApp()">🏠 Ana Sayfa</button>
+  <button onclick="goProblems()" id="checkBtn">Aracı Kontrol Et</button>
+  <button class="btn-home" onclick="resetApp()" id="homeBtn">🏠 Ana Sayfa</button>
 </div>
 
 <div class="page" id="listPage">
-  <h2>🔍 Araç Sorunları</h2>
+  <h2 id="problemTitle">🔍 Araç Sorunları</h2>
   <div id="problemList" style="font-size: 18px; line-height: 1.6;"></div>
-  <button onclick="startFix()">Tamire Başla</button>
-  <button class="btn-home" onclick="resetApp()">🏠 Ana Sayfa</button>
+  <button onclick="startFix()" id="repairBtn">Tamire Başla</button>
+  <button class="btn-home" onclick="resetApp()" id="homeBtn">🏠 Ana Sayfa</button>
 </div>
 
 <div class="page" id="fixPage">
-  <h2 id="problemText" style="margin-top: 40px;"></h2>
-
+  <h2 id="problemText" style="margin-top: 20px;"></h2>
+  <div style="margin: 20px auto; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; max-width: 300px;">
+    <select id="technicianSelect" style="padding: 10px; font-size: 16px; width: 100%; border-radius: 5px;">
+      <option value="" id="techSelect">-- Teknisyen Seçiniz --</option>
+      <option value="1. Teknisyen" class="techOption">1. Teknisyen</option>
+      <option value="2. Teknisyen" class="techOption">2. Teknisyen</option>
+      <option value="3. Teknisyen" class="techOption">3. Teknisyen</option>
+      <option value="4. Teknisyen" class="techOption">4. Teknisyen</option>
+      <option value="5. Teknisyen" class="techOption">5. Teknisyen</option>
+      <option value="6. Teknisyen" class="techOption">6. Teknisyen</option>
+      <option value="7. Teknisyen" class="techOption">7. Teknisyen</option>
+      <option value="8. Teknisyen" class="techOption">8. Teknisyen</option>
+    </select>
+    <div style="margin-top: 15px;">
+      <input type="checkbox" id="userCheck" style="transform: scale(1.5);"> 
+      <label for="userCheck" style="font-size: 18px; margin-left: 10px;" id="selfFix">Tamiri ben yaptım</label>
+    </div>
+  </div>
   <div id="actions"></div>
-
   <p id="status"></p>
-  <button class="btn-home" onclick="resetApp()">🏠 Ana Sayfa</button>
+  <button class="btn-home" onclick="resetApp()" id="homeBtn">🏠 Ana Sayfa</button>
 </div>
 
 <div class="page" id="finalPage">
   <h1 id="finalText" style="margin-top: 80px; line-height: 1.5;"></h1>
   <button onclick="location.reload()">✌️ Z-U!</button>
-  <button class="btn-home" onclick="resetApp()">🏠 Ana Sayfa</button>
+  <button class="btn-home" onclick="resetApp()" id="homeBtn">🏠 Ana Sayfa</button>
 </div>
 
 <script>
-
 let currentProblem = 0;
 let isSolved = false;
 let isControlled = false;
 
 const problems = [
   {
-    text: "🌬️  Hava filtresi kirli, değiştirilmesi gerekiyor.",
-    action: "Filtreyi Değiştir",
-    result: "✅ Hava filtresi başarıyla değiştirildi!"
+    text: {
+      tr: "🌬️ Hava filtresi kirli, değiştirilmesi gerekiyor.",
+      en: "🌬️ Air filter is dirty, needs replacement."
+    },
+    action: {
+      tr: "Filtreyi Değiştir",
+      en: "Replace Filter"
+    },
+    result: {
+      tr: "✅ Hava filtresi başarıyla değiştirildi!",
+      en: "✅ Air filter replaced successfully!"
+    }
   },
   {
-    text: "🛢️  Motor yağı eski, yenilenmesi gerekiyor.",
-    action: "Motor Yağını Yenile",
-    result: "✅ Motor yağı başarıyla yenilendi!"
+    text: {
+      tr: "🛢️ Motor yağı eski, yenilenmesi gerekiyor.",
+      en: "🛢️ Engine oil is old, needs replacement."
+    },
+    action: {
+      tr: "Motor Yağını Yenile",
+      en: "Change Engine Oil"
+    },
+    result: {
+      tr: "✅ Motor yağı yenilendi!",
+      en: "✅ Engine oil changed!"
+    }
   },
   {
-    text: "💧  Cam suyu seviyesi düşük, ekleme yapılması gerekiyor.",
-    action: "Cam Suyu Ekle",
-    result: "✅ Cam suyu başarıyla eklendi!"
+     text:{
+      tr:"💧 Cam suyu seviyesi düşük, ekleme yapılması gerekiyor.",
+      en:"💧 Washer fluid level is low; it needs to be topped up.",
+    },
+     action:{
+      tr:"Cam Suyu Ekle",
+      en:"Add windshield washer fluid."
+    },
+     result: {
+       tr: "✅ Cam suyu değiştirildi!",
+       en: "✅ Windshield washer fluid changed!"
+    }
   },
   {
-    text: "🚗  Ön lastikler aşınmış, yenilenmesi gerekiyor.",
-    action: "Ön Lastikleri Yenile",
-    result: "✅ Ön lastikler başarıyla yenilendi!"
+     text:{
+      tr:"🚗 Ön lastikler aşınmış, yenilenmesi gerekiyor.",
+      en:"🚗 Front tyres are worn, it needs replacement.",
+    },
+     action:{
+      tr:"Ön lastikleri yenile.",
+      en:"Replace the new front tyres."
+    },
+     result: {
+       tr: "✅ Ön lastikler yenilendi!",
+       en: "✅ Front tyres changed!"
+    }
   },
   {
-    text: "⚡  Sigorta bağlantısı yok, kabloları kontrol ediniz.",
-    action: "Kabloları Kontrol Et ve Bağla",
-    result: "✅ Kablolar kontrol edildi, sigorta bağlantısı sağlandı!"
+    text:{
+      tr:"⚡ Sigorta bağlantısı yok, kabloları kontrol ediniz.",
+      en:"⚡ There is no fuse connection, please check the cables.",
+    },
+     action:{
+      tr:"Kabloları Kontrol Et ve Bağla",
+      en:"Check the cables and connect them!"
+    },
+     result: {
+       tr: "✅ Kablolar kontrol edildi, sigorta bağlantısı sağlandı!",
+       en: "✅ Cables have been checked, fuse connection provided!"
+    }
   }
+
 ];
 
 function showPage(id) {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+  // Tüm sayfaları gizle
+  const allPages = document.querySelectorAll(".page");
+  allPages.forEach(p => {
+    p.style.display = "none";
+    p.classList.remove("active");
+  });
+  
+  // Sadece istenen sayfayı göster
+  const targetPage = document.getElementById(id);
+  targetPage.style.display = "flex";
+  targetPage.classList.add("active");
 }
-
-function start() {
-  showPage("controlPage");
-
-  setTimeout(() => {
-    if(document.getElementById("controlPage").classList.contains("active")) {
-      showPage("infoPage");
-    }
-  }, 2000);
+function start() { 
+  document.getElementById("page1").classList.remove("active");
+  
+  showPage("controlPage"); 
+  setTimeout(() => showPage("infoPage"), 2000); 
 }
-
 function goProblems() {
   let html = "";
-  problems.forEach(p => {
-    html += `<div><strong>${p.text}</strong></div><br>`;
-  });
+  problems.forEach(p => { html += `<div><strong>${p.text[currentLang]}</strong></div>`; });
   document.getElementById("problemList").innerHTML = html;
   showPage("listPage");
 }
 
-function startFix() {
-  currentProblem = 0;
-  showProblem();
-}
+function startFix() { currentProblem = 0; showProblem(); }
 
 function showProblem() {
   showPage("fixPage");
-
   isSolved = false;
   isControlled = false;
+
+  document.getElementById("technicianSelect").value = "";
+  document.getElementById("userCheck").checked = false;
+  document.getElementById("status").innerHTML = "";
 
   let p = problems[currentProblem];
 
   document.getElementById("problemText").innerHTML =
-    `<span class="bounce">${p.text}</span>`;
+    `<span class="bounce">${p.text[currentLang]}</span>`;
 
-  let nextText = "Sonraki Soruna Git";
-  if (currentProblem >= problems.length - 1) {
-    nextText = " İşlemi Bitir";
-  }
+  let nextText = currentProblem >= problems.length - 1
+    ? translations[currentLang].finish
+    : translations[currentLang].next;
 
   document.getElementById("actions").innerHTML = `
-    <button id="fixBtn" onclick="solve()">⚙️ ${p.action}</button>
-    <button id="controlBtn" class="btn-control" onclick="reControl()">🔄 Tekrar Kontrol Et</button>
-    <button id="nextBtn" class="btn-next" onclick="nextProblem()">👉 ${nextText}</button>
+    <button id="fixBtn" onclick="solve()">⚙️ ${p.action[currentLang]}</button>
+    <button id="controlBtn" class="btn-control" onclick="reControl()">
+      ${translations[currentLang].control}
+    </button>
+    <button id="nextBtn" class="btn-next" onclick="nextProblem()">
+      👉 ${nextText}
+    </button>
   `;
-
-  document.getElementById("status").innerHTML = "";
 }
 
 function solve() {
   isSolved = true;
+
   document.getElementById("status").innerHTML =
-    `<div class="tick" style="color: #3498db;">ℹ️</div> Sistem tekrar analiz ediliyor, lütfen işlemi uygulayın.`;
+    `<div style="font-size:20px; color:#3498db;">
+      ${translations[currentLang].ready}
+    </div>`;
 }
 
+
 function reControl() {
-  if (!isSolved) {
-    document.getElementById("status").innerHTML = 
-      `<div class="tick" style="color: #f1c40f;">⚠️</div> Lütfen önce yukarıdaki tamir işlemini uygulayınız!`;
+  const tech = document.getElementById("technicianSelect").value;
+  const isChecked = document.getElementById("userCheck").checked;
+  const statusDiv = document.getElementById("status");
+
+  if (!tech || !isChecked) {
+    statusDiv.innerHTML = translations[currentLang].warningSelect;
     return;
   }
 
-  let p = problems[currentProblem];
+  if (!isSolved) {
+    statusDiv.innerHTML = translations[currentLang].warningFix;
+    return;
+  }
+
   isControlled = true;
-  
-  document.getElementById("status").innerHTML =
-    `<div class="tick">✔</div> ${p.result}`;
+
+  let p = problems[currentProblem];
+
+  statusDiv.innerHTML = `
+    <div style="font-size:20px; color:lime;">
+      ${translations[currentLang].successMsg} ${tech}! <br><br>
+      ${p.result[currentLang]}
+    </div>
+  `;
 
   confetti();
 }
 
 function nextProblem() {
-  if (!isSolved) {
-    document.getElementById("status").innerHTML = 
-      `<div class="tick" style="color: #f1c40f;">⚠️</div> Lütfen önce tamir işlemini uygulayıp ardından sistemi kontrol ediniz!`;
-    return;
-  }
-  
-  if (isSolved && !isControlled) {
-    document.getElementById("status").innerHTML = 
-      `<div class="tick" style="color: #f1c40f;">⚠️</div> Tamir yapıldı! Lütfen sonraki soruna geçmeden önce 'Tekrar Kontrol Et' butonuna basarak sistemi test edin.`;
-    return;
-  }
-
+  if (!isControlled) { 
+document.getElementById("status").innerHTML =
+  `<div style="font-size:20px; color:#f1c40f;">
+    ${translations[currentLang].warningNext}
+  </div>`;
+ return; }
   currentProblem++;
-
-  if (currentProblem < problems.length) {
-    showProblem();
-  } else {
-    showFinal();
-  }
+  if (currentProblem < problems.length) showProblem(); else showFinal();
 }
 
 function confetti() {
   for (let i = 0; i < 15; i++) {
-    let c = document.createElement("div");
-    c.classList.add("confetti");
-
+    let c = document.createElement("div"); c.classList.add("confetti");
     c.style.left = Math.random() * window.innerWidth + "px";
-    c.style.background =
-      ["red","yellow","blue","green"][Math.floor(Math.random()*4)];
-
+    c.style.background = ["red","yellow","blue","green"][Math.floor(Math.random()*4)];
     document.body.appendChild(c);
-
     setTimeout(() => c.remove(), 3000);
   }
 }
 
-function showFinal() {
-  showPage("finalPage");
-  document.getElementById("finalText").innerHTML =
-    "🏆 ZÜPERSİN! <br><br> USTA GÖREVİNİ TAMAMLADI! <br><br> ZANKS! 🏆";
-
-  confetti();
-}
-
-function resetApp() {
-  currentProblem = 0;
-  isSolved = false;
-  isControlled = false;
-  showPage("page1");
-}
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        var splash = document.getElementById('splash-screen');
-        splash.style.opacity = 0;
-
-        setTimeout(function() {
-            splash.style.display = 'none';
-        }, 500); 
-    }, 2500); 
+function showFinal() { showPage("finalPage"); document.getElementById("finalText").innerHTML = translations[currentLang].final; confetti(); }
+function resetApp() { currentProblem = 0; isSolved = false; isControlled = false; showPage("page1"); }
+window.addEventListener('load', function() { setTimeout(function() { var splash = document.getElementById('splash-screen'); splash.style.opacity = 0; setTimeout(function() { splash.style.display = 'none'; }, 500); }, 2500); });
+window.addEventListener("load", function () {
+  setLang("tr");
 });
-</script>
 
+let currentLang = "tr";
+
+const translations = {
+  tr: {
+    title: "🚗 KidZania İstanbul Oto Servis'e Hoş Geldiniz",
+    start: "🚗 Araç Analizi",
+    info: "🚗 Araç Bilgisi",
+    check: "Aracı Kontrol Et",
+    control: "🔄 Tekrar Kontrol Et",
+    next: "👉 Sonraki Soruna Git",
+    finish: "👉 İşlemi Bitir",
+    warningSelect: "⚠️ Lütfen teknisyen seçip kutucuğu işaretleyin!",
+    warningFix: "⚠️ Lütfen önce tamiri uygulayın!",
+    warningNext: "⚠️ Önce kontrol etmelisin!",
+    successMsg: "✔ Harika",
+    analyzing: "⏳ Araç analiz ediliyor...",
+    problems: "🔍 Araç Sorunları",
+    repair: "Tamire Başla",
+    home: "🏠 Ana Sayfa",
+    maintenance: "ARAÇ BAKIM VE MUAYENENİZİ ZAMANINDA<br>YAPTIRDIĞINIZ İÇİN",
+    vehicleInfo: "🚘 KidZania İST 2013 Model<br>✅ Muayene: Mayıs 2026<br>📅 Sonraki: Mayıs 2028<br>🛣️ Kilometre: 230.998",
+    ready: "ℹ️ Sistem analiz için hazır.",
+
+    final: "🏆 ZÜPERSİN! <br><br> USTA GÖREVİ TAMAMLADI!"
+  },
+  en: {
+    title: "🚗 Welcome to KidZania Auto Service",
+    start: "🚗 Vehicle Analysis",
+    info: "🚗 Vehicle Information",
+    check: "Check Vehicle",
+    control: "🔄 Check Again",
+    next: "👉 Next Problem",
+    finish: "👉 Finish",
+    warningSelect: "⚠️ Please select technician and check the box!",
+    warningFix: "⚠️ Please perform the repair first!",
+    successMsg: "✔ Great job",
+    warningNext: "⚠️ You must check first!",
+    analyzing: "⏳ Vehicle is being analyzed...",
+    problems: "🔍 Vehicle Problems",
+    repair: "Start Repairing",
+    home: "🏠 Home",
+    maintenance: "THANK YOU FOR DOING YOUR VEHICLE<br>MAINTENANCE AND INSPECTION ON TIME",
+    vehicleInfo: "🚘 KidZania IST 2013 Model<br>✅ Inspection: May 2026<br>📅 Next: May 2028<br>🛣️ Mileage: 230,998",
+    ready: "ℹ️ Ready for system check.",
+    final: "Züpersin🏆 ! <br><br> MISSION COMPLETED!"
+  }
+};
+function setLang(lang) {
+
+  currentLang = lang;
+
+  document.querySelector(".title").innerHTML = translations[lang].title;
+
+  document.querySelector("#page1 button:last-child").innerHTML = translations[lang].start;
+
+  document.getElementById("infoTitle").innerHTML = translations[lang].info;
+
+  document.getElementById("checkBtn").innerHTML = translations[lang].check;
+
+  document.getElementById("selfFix").innerHTML =
+  currentLang === "tr"
+    ? "Tamiri ben yaptım"
+    : "I fixed it myself";
+  
+  const techNamesTR = [
+  "1. Teknisyen",
+  "2. Teknisyen",
+  "3. Teknisyen",
+  "4. Teknisyen",
+  "5. Teknisyen",
+  "6. Teknisyen",
+  "7. Teknisyen",
+  "8. Teknisyen"
+];
+
+  const techNamesEN = [
+  "Technician 1",
+  "Technician 2",
+  "Technician 3",
+  "Technician 4",
+  "Technician 5",
+  "Technician 6",
+  "Technician 7",
+  "Technician 8"
+];
+
+  const options = document.querySelectorAll(".techOption");
+
+options.forEach((opt, i) => {
+  opt.innerHTML = currentLang === "tr"
+    ? techNamesTR[i]
+    : techNamesEN[i];
+
+  opt.value = opt.innerHTML;
+});
+
+  document.getElementById("techSelect").innerHTML =
+  currentLang === "tr"
+    ? "-- Teknisyen Seçiniz --"
+    : "-- Select Technician --";
+  
+  document.getElementById("analyzingText").innerHTML =
+  translations[currentLang].analyzing;
+
+  document.getElementById("problemTitle").innerHTML =
+  translations[currentLang].problems;
+
+  document.getElementById("repairBtn").innerHTML =
+  translations[currentLang].repair;
+
+  document.querySelectorAll(".btn-home").forEach(btn => {
+  btn.innerHTML = translations[currentLang].home;
+});
+
+  document.getElementById("vehicleInfo").innerHTML =
+  translations[currentLang].vehicleInfo;
+ 
+  document.getElementById("maintenanceText").innerHTML =
+  translations[currentLang].maintenance;
+}
+
+</script>
 </body>
 </html>
